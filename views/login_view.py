@@ -4,6 +4,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 from views.inicio_view import open_incio_view
 
+from controllers.login_controller import handle_login
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"./assets/login_views")
@@ -75,7 +76,7 @@ def open_login():
         image=button_image_1,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: window.destroy() or open_incio_view(),
+        command=lambda: handle_login(entry_1,entry_2, window),
         relief="flat"
     )
     button_1.place(

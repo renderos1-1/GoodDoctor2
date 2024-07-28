@@ -1,17 +1,17 @@
-import mysql.connector
-from mysql.connector import Error
-
+import mariadb
+from mariadb import Error
 
 def create_connection():
     try:
-        connection = mysql.connector.connect(
-            host='lcoalhost',
+        connection = mariadb.connect(
+            host='localhost',
             user='root',
             password='root',
             database='medical_records'
         )
-        if connection.is_connected():
+        if connection:
+            print("Connected to MariaDB")
             return connection
     except Error as e:
-        print("Error al conectar con MariaDB", e)
+        print("Error connecting to MariaDB:", e)
         return None

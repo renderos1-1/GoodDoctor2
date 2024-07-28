@@ -8,7 +8,7 @@ def handle_login_attempt(username, password, ip_address):
             return False, "Fallo al conectar con la BD"
         cursor = connection.cursor()
 
-        cursor.execute("SELECT Password FROM Usuario WHERE user = %s", (username,))
+        cursor.execute("SELECT Password FROM usuario WHERE nombre = %s", (username,))
         result = cursor.fetchone()
         if result and result[0] == password:
             return True, "Login exitoso"
@@ -28,4 +28,4 @@ def handle_login_attempt(username, password, ip_address):
         if connection:
             connection.close()
 
-# unico a productos
+
